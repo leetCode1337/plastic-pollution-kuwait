@@ -1,0 +1,109 @@
+/* -------------------------------------------------
+   Less Plastic, Cleaner Kuwait  ·  GLOBAL THEME
+   ------------------------------------------------- */
+
+   :root{
+    --aqua:#0099a6;          /* brand colour */
+    --sand:#f4ead5;          /* warm background */
+    --ink:#222;              /* body text */
+    --white:#fff;
+    --shadow:0 2px 8px rgba(0,0,0,.10);
+    --radius:8px;
+    --max:1100px;
+  }
+  
+  /* ---------- Reset & base ---------- */
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--sand);
+    color:var(--ink);
+    font:16px/1.55 Arial,Helvetica,sans-serif;
+  }
+  img,video,iframe{max-width:100%;border-radius:var(--radius);}
+  h1,h2,h3{color:var(--aqua);line-height:1.2;margin:1rem 0 .5rem;}
+  p{margin:.6rem 0;}
+  a{color:var(--aqua);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  
+  /* ---------- Layout helpers ---------- */
+  .container{max-width:var(--max);margin:auto;padding:1rem;}
+  .card{
+    background:var(--white);
+    padding:1rem 1.25rem;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    margin:1.25rem 0;
+  }
+  
+  /* ---------- Hero banner ---------- */
+  header.hero{
+    background:url("images/Volunteers collecting bottles on Mina Abdullah beach.png") center/cover;
+    color:var(--white);
+    text-align:center;
+    padding:7rem 1rem 6rem;
+    position:relative;
+  }
+  header.hero::after{          /* translucent overlay for readability */
+    content:"";position:absolute;inset:0;
+    background:rgba(0,0,0,.45);
+  }
+  header.hero>*{position:relative;z-index:1;}
+  header.hero h1{font-size:2.6rem;}
+  header.hero .subtitle{font-size:1.25rem;margin-top:.8rem;}
+  
+  /* ---------- Navigation bar ---------- */
+  nav{
+    background:var(--white);
+    box-shadow:var(--shadow);
+    position:sticky;top:0;z-index:99;
+  }
+  nav ul{display:flex;flex-wrap:wrap;justify-content:center;list-style:none;}
+  nav li{margin:.5rem 1rem;}
+  nav a{font-weight:bold;color:var(--ink);}
+  nav a:hover{color:var(--aqua);}
+  
+  /* ---------- Tables ---------- */
+  table{width:100%;border-collapse:collapse;margin:1rem 0;}
+  th,td{border:1px solid #d0d0d0;padding:.6rem;text-align:center;}
+  th{background:var(--aqua);color:var(--white);}
+  
+  /* ---------- Chart containers ---------- */
+  canvas{display:block;margin:auto;max-width:640px;height:160px !important;} /* tidy compact charts */
+  .chart-box{padding:1rem 0;}
+  .chart-caption{
+    font-size:.9rem;
+    color:#555;
+    margin-top:.3rem;
+    text-align:center;
+  }
+  
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--white);
+    text-align:center;
+    padding:2rem 1rem;
+    margin-top:3rem;
+    font-size:.9rem;
+  }
+  
+  /* ---------- Scroll-to-top button ---------- */
+  .scroll-top{
+    position:fixed;
+    right:1rem;bottom:1rem;
+    width:44px;height:44px;
+    border:none;border-radius:50%;
+    background:var(--aqua);color:var(--white);
+    font-size:1.35rem;cursor:pointer;
+    box-shadow:var(--shadow);
+  }
+  
+  /* ---------- Responsive tweaks ---------- */
+  @media(max-width:700px){
+    header.hero{padding:5.5rem 1rem;}
+    header.hero h1{font-size:2rem;}
+    header.hero .subtitle{font-size:1.05rem;}
+    nav ul{flex-direction:column;align-items:center;}
+    nav li{margin:.35rem 0;}
+  }
+  

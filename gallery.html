@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gallery | Less Plastic Kuwait</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <style>
+  /* responsive image grid */
+  .grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  figure {
+    background: var(--white);
+    padding: .6rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+  figcaption {
+    font-size: .88rem;
+    color: #555;
+    margin-top: .4rem;
+    text-align: center;
+  }
+  </style>
+</head>
+<body>
+
+  <!-- NAV BACK TO HOME -->
+  <nav>
+    <ul><li><a href="index.html">&laquo; Home</a></li></ul>
+  </nav>
+
+  <main class="container">
+    <h1>Photo & Story Gallery</h1>
+    <p>
+      All images below live in <code>/images</code> and illustrate Kuwait’s plastic story.
+      Feel free to reuse—just credit “Less Plastic Kuwait” and tag <strong>#PlasticFreeKWT</strong>.
+    </p>
+
+    <div class="grid">
+
+      <!-- 1: Beach cleanup -->
+      <figure>
+        <img src="images/Volunteers collecting bottles on Mina Abdullah beach.png"
+             alt="Volunteers collecting bottles on Mina Abdullah beach">
+        <figcaption>
+          Mina Abdullah beach, 2023—80 volunteers collected 300 trash bags in one morning.<br>
+          <em>(Kuwait Dive Team)</em>
+        </figcaption>
+      </figure>
+
+      <!-- 2: Microplastics close-up -->
+      <figure>
+        <img src="images/Close-up of colourful microplastic fragments in Kuwait Bay sand.png"
+             alt="Close-up of colourful microplastic fragments in Kuwait Bay sand">
+        <figcaption>
+          Microplastic fragments sieved from Kuwait Bay sand—most are broken shopping bags.
+        </figcaption>
+      </figure>
+
+      <!-- 3: Entangled turtle -->
+      <figure>
+        <img src="images/Sea turtle entangled in plastic bag.png"
+             alt="Sea turtle entangled in a plastic bag">
+        <figcaption>
+          Rescued green turtle after entanglement. Dive Team logged 18 cases in 2023.
+        </figcaption>
+      </figure>
+
+      <!-- 4: Student art -->
+      <figure>
+        <img src="images/School art project made from cleaned ocean plastics.png"
+             alt="School art project made from cleaned ocean plastics">
+        <figcaption>
+          Grade-8 students built “Plastic Pearl Dhow” sculpture from beach waste for Earth Day 2024.
+        </figcaption>
+      </figure>
+
+      <!-- 5: Reusable kit -->
+      <figure>
+        <img src="images/Everyday zero-waste kit steel bottle tote cutlery.png"
+             alt="Everyday zero-waste kit: steel bottle, tote, cutlery">
+        <figcaption>
+          Everyday zero-waste kit—swap once, save hundreds of disposables each year.
+        </figcaption>
+      </figure>
+
+      <!-- 6: RPET factory -->
+      <figure>
+        <img src="images/PET bottle recycling line.png"
+             alt="PET bottle recycling line in factory">
+        <figcaption>
+          Shuwaikh Industrial Area—Kuwait’s first RPET plant turns 26 000 t of bottles into new preforms.
+        </figcaption>
+      </figure>
+
+      <!-- 7: Paper bag pilot -->
+      <figure>
+        <img src="images/Paper shopping bags at Kuwait City supermarket.png"
+             alt="Paper shopping bags at Kuwait City supermarket">
+        <figcaption>
+          Local supermarket’s paper-bag trial (April 2024). Customer uptake: 67 % in first week.
+        </figcaption>
+      </figure>
+
+      <!-- 8: Produce mesh bags -->
+      <figure>
+        <img src="images/Mesh produce bags at Q8 farmer’s market.png"
+             alt="Mesh produce bags at Q8 farmer’s market">
+        <figcaption>
+          Mesh produce bags at a Q8 Farmers’ Market stall—simple swap saves 400+ thin bags a year.
+        </figcaption>
+      </figure>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2024 Less Plastic Kuwait · Images hosted locally in <code>/images</code>.</p>
+  </footer>
+
+  <button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">▲</button>
+</body>
+</html>

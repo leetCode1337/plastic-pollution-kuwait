@@ -1,0 +1,177 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Data & Charts | Less Plastic Kuwait</title>
+
+<link rel="stylesheet" href="style.css">
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- ===== NAV BAR (minimal) ===== -->
+<nav>
+  <ul>
+    <li><a href="index.html">&laquo; Home</a></li>
+    <li><a href="#trend">Trend</a></li>
+    <li><a href="#percap">Per-Capita</a></li>
+    <li><a href="#import">Import vs Recycle</a></li>
+    <li><a href="#mix">Sea Litter</a></li>
+    <li><a href="#cost">Economic Cost</a></li>
+    <li><a href="#gcc">GCC Compare</a></li>
+  </ul>
+</nav>
+
+<main class="container">
+<h1>Plastic in Numbers</h1>
+<p>
+  These six compact charts tell the story behind Kuwait’s plastic challenge. Hover (or tap) the
+  points to see exact values.
+</p>
+
+<!-- ==== 1 · TOTAL TREND ==== -->
+<section id="trend" class="card">
+  <h2>Annual Plastic Waste (tonnes)</h2>
+  <p>The waste curve keeps rising—up <strong>≈30 %</strong> since 2017.</p>
+  <div class="chart-box">
+    <canvas id="barTrend" height="160"
+            aria-label="Bar chart: Kuwait plastic waste trend 2017-2023"></canvas>
+    <div class="chart-caption">Kuwait EPA annual reports 2017-2023.<sup>[1]</sup></div>
+  </div>
+  <p><em>Take-away:</em> Even perfect recycling can’t keep pace unless we also cut consumption.</p>
+</section>
+
+<!-- ==== 2 · PER CAPITA ==== -->
+<section id="percap" class="card">
+  <h2>Per-Capita Plastic Waste (kg / person / year)</h2>
+  <p>One resident discards roughly half a tonne of plastic each year.</p>
+  <div class="chart-box">
+    <canvas id="barCap" height="160"
+            aria-label="Bar chart: per-capita plastic waste"></canvas>
+    <div class="chart-caption">Gulf News 2024; KISR household survey 2023.<sup>[2]</sup></div>
+  </div>
+  <p><em>Swap tip:</em> Replacing one plastic bottle a day trims ~9 kg per year from that bar.</p>
+</section>
+
+<!-- ==== 3 · IMPORT VS RECYCLE ==== -->
+<section id="import" class="card">
+  <h2>Virgin Resin Imports vs Plastic Recycled</h2>
+  <p>Imports outstrip recycling by a factor of 6, but the gap is slowly closing.</p>
+  <div class="chart-box">
+    <canvas id="lineRecycle" height="160"
+            aria-label="Line chart: imports vs recycled plastic"></canvas>
+    <div class="chart-caption">WTO trade stats & local recyclers 2024.<sup>[3]</sup></div>
+  </div>
+  <p><em>Policy idea:</em> A 30 % recycled-content rule for bottles could double the blue line by 2027.</p>
+</section>
+
+<!-- ==== 4 · SEA LITTER MIX ==== -->
+<section id="mix" class="card">
+  <h2>What Reaches the Sea? (Share %)</h2>
+  <p>Lightweight shopping bags still dominate coastal litter.</p>
+  <div class="chart-box">
+    <canvas id="pieSea" height="160"
+            aria-label="Pie chart: composition of coastal plastic"></canvas>
+    <div class="chart-caption">Kuwait Bay shoreline audit 2022.<sup>[4]</sup></div>
+  </div>
+  <p><em>Fast action:</em> Dubai cut single-use bags 90 % in one year using a 25-fils fee.<sup>[5]</sup></p>
+</section>
+
+<!-- ==== 5 · ECONOMIC COST ==== -->
+<section id="cost" class="card">
+  <h2>Estimated Economic Cost (USD million / year)</h2>
+  <p>Beach clean-ups and lost tourism revenue rise faster than inflation.</p>
+  <div class="chart-box">
+    <canvas id="lineCost" height="160"
+            aria-label="Line chart: economic cost of plastic waste"></canvas>
+    <div class="chart-caption">UNEP coastal cost model 2023.<sup>[6]</sup></div>
+  </div>
+</section>
+
+<!-- ==== 6 · GCC COMPARISON ==== -->
+<section id="gcc" class="card">
+  <h2>GCC Snapshot – Daily Waste (kg / person)</h2>
+  <p>Kuwait leads the league table, but neighbours show progress is possible.</p>
+  <div class="chart-box">
+    <canvas id="radarGCC" height="160"
+            aria-label="Radar chart: GCC plastic waste per capita"></canvas>
+    <div class="chart-caption">Regional solid-waste reviews 2024.<sup>[7]</sup></div>
+  </div>
+</section>
+
+<!-- ==== QUICK STATS TABLE ==== -->
+<section class="card">
+  <h2>Quick-Reference Table</h2>
+  <table>
+    <tr><th>Metric</th><th>Value</th><th>Source</th></tr>
+    <tr><td>Plastic share of total waste</td><td>18 %</td><td>KISR 2022<sup>[4]</sup></td></tr>
+    <tr><td>Landfill space remaining</td><td>&lt; 7 years</td><td>EPA projection 2023</td></tr>
+    <tr><td>GCC single-use packaging market</td><td>USD 4.2 bn (2024)</td><td>Verified Market Research<sup>[5]</sup></td></tr>
+    <tr><td>Microplastics in Bay sediment</td><td>1–5 pcs / 10 g</td><td>Mao et al. 2021<sup>[6]</sup></td></tr>
+  </table>
+</section>
+
+</main>
+
+<!-- ====== CHART.JS CONFIG ====== -->
+<script>
+const aqua="#0099a6";                      // theme colour
+
+// 1 · Total trend
+new Chart("barTrend",{type:"bar",
+  data:{labels:["2017","2019","2021","2023"],
+        datasets:[{data:[160000,185000,200000,210000],backgroundColor:aqua}]},
+  options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}
+});
+
+// 2 · Per-capita (kg / year) – 1.4 kg × 365 ≈ 511 kg
+new Chart("barCap",{type:"bar",
+  data:{labels:["Kuwait"],datasets:[{data:[511],backgroundColor:aqua}]},
+  options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}
+});
+
+// 3 · Imports vs recycling
+new Chart("lineRecycle",{type:"line",
+  data:{labels:["2019","2021","2023"],
+        datasets:[
+          {label:"Resin imports (t)",data:[310000,335000,350000]},
+          {label:"Plastic recycled (t)",data:[38000,46000,52000]}
+        ]},
+  options:{responsive:true}
+});
+
+// 4 · Sea litter composition
+new Chart("pieSea",{type:"doughnut",
+  data:{labels:["Bags","Bottles","Foam","Fishing gear","Other"],
+        datasets:[{data:[40,25,15,10,10],
+          backgroundColor:[aqua,"#34a0a4","#52b788","#76c893","#adb5bd"]}]},
+  options:{plugins:{legend:{position:"bottom"}}}
+});
+
+// 5 · Economic cost
+new Chart("lineCost",{type:"line",
+  data:{labels:["2018","2020","2022","2024"],
+        datasets:[{label:"Cost",data:[50,60,72,85],borderColor:aqua,fill:false}]},
+  options:{scales:{y:{title:{display:true,text:"USD million"},beginAtZero:true}}}
+});
+
+// 6 · GCC radar
+new Chart("radarGCC",{type:"radar",
+  data:{labels:["Kuwait","UAE","Saudi","Oman","Qatar","Bahrain"],
+        datasets:[{label:"kg / person / day",
+          data:[1.4,1.1,1.2,0.9,1.3,1.0],
+          backgroundColor:"rgba(0,153,166,.3)",borderColor:aqua}]},
+  options:{scale:{ticks:{beginAtZero:true,max:1.5}}}
+});
+</script>
+
+<footer>
+  <p>© 2024 Less Plastic Kuwait &nbsp;·&nbsp; Full citations on
+    <a href="glossary.html#refs">Glossary & References</a>.
+  </p>
+</footer>
+
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">▲</button>
+</body>
+</html>
